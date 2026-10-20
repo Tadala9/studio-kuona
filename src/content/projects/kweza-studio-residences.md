@@ -23,7 +23,6 @@ details:
 lead: A creative home from the first night, not a generic rental.
 galleryLayout: square-pair
 gallery:
-  # Low resolution: replace with Tad's original render when available
   - image: ../../images/kweza-bed.jpg
     alt: Bed against a deep red wall with portrait artwork and rattan headboard
     tag: VISUALISATION
