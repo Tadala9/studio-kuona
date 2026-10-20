@@ -1,0 +1,203 @@
+---
+import { getCollection, render } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Footer from '../../components/Footer.astro';
+import Picture from '../../components/Picture.astro';
+
+export async function getStaticPaths() {
+  const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
+  // Each page links to the next project; the last one loops back to the first.
+  return projects.map((project, i) => ({
+    params: { slug: project.id },
+    props: { project, next: projects[(i + 1) % projects.length] },
+  }));
+}
+
+interface Props {
+  project: CollectionEntry<'projects'>;
+  next: CollectionEntry<'projects'>;
+}
+
+const { project, next } = Astro.props;
+const { data } = project;
+const { Content } = await render(project);
+const isPair = data.hero.length === 2;
+
+const gallery = {
+  full: { ratio: undefined, sizes: '100vw' },
+  'square-pair': { ratio: '1 / 1', sizes: '(min-width: 768px) 50vw, 100vw' },
+  'portrait-three': { ratio: '3 / 4', sizes: '(min-width: 768px) 33vw, 100vw' },
+}[data.galleryLayout];
+---
+
+<Base title={`${data.name} · Studio Kuona`} description={data.description}>
+  <div class="wrap">
+    <a class="back label text-link" href="/#work">← All work</a>
+
+    <header class="intro">
+      <p class="label label--muted">{data.eyebrow}</p>
+      <h1 class="title">{data.name}</h1>
+      <p class="label">{data.meta}</p>
+    </header>
+  </div>
+
+  <figure class:list={['hero', { 'hero--pair wrap': isPair }]}>
+    {data.hero.map((picture, i) => (
+      <Picture
+        src={picture.image}
+        alt={picture.alt}
+        tag={picture.tag}
+        ratio={isPair ? '3 / 4' : undefined}
+        sizes={isPair ? '(min-width: 768px) 50vw, 100vw' : '100vw'}
+        eager={i === 0 || isPair}
+        class={isPair ? undefined : 'hero__single'}
+      />
+    ))}
+    {data.heroCaption && <figcaption class="wrap label label--muted hero__caption">{data.heroCaption}</figcaption>}
+  </figure>
+
+  <section class="info wrap" aria-label="About the project">
+    <dl class="details">
+      {data.details.map((item) => (
+        <div class="details__row">
+          <dt class="label label--muted">{item.label}</dt>
+          <dd>{item.value}</dd>
+        </div>
+      ))}
+    </dl>
+    <div class="story">
+      <p class="statement">{data.lead}</p>
+      <div class="story__body">
+        <Content />
+      </div>
+    </div>
+  </section>
+
+  <section class:list={['gallery wrap', `gallery--${data.galleryLayout}`]} aria-label="Gallery">
+    {data.gallery.map((picture) => (
+      <Picture src={picture.image} alt={picture.alt} tag={picture.tag} ratio={gallery.ratio} sizes={gallery.sizes} />
+    ))}
+  </section>
+
+  {data.credit && <p class="wrap credit label label--muted">{data.credit}</p>}
+
+  <nav class="wrap next" aria-label="Next project">
+    <a class="next__link" href={`/work/${next.id}`}>
+      <span class="next__text">
+        <span class="label label--muted">Next project</span>
+        <span class="next__name">{next.data.name} <span aria-hidden="true">→</span></span>
+      </span>
+      <Picture
+        src={next.data.card.image}
+        alt=""
+        ratio="4 / 3"
+        sizes="200px"
+        class="next__thumb fade-img"
+      />
+    </a>
+  </nav>
+
+  <Footer slot="footer" variant="project" />
+</Base>
+
+<style>
+  .back {
+    display: inline-block;
+    padding: 12px 0 2px;
+    margin-top: 8px;
+  }
+  .intro {
+    padding: 40px 0 40px;
+  }
+  .title {
+    margin: 16px 0 16px;
+    font-size: 40px;
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+  }
+  @media (min-width: 1024px) {
+    .intro { padding: 64px 0 56px; }
+    .title { font-size: 60px; }
+  }
+
+  /* Hero */
+  .hero :global(.hero__single) { height: 420px; }
+  @media (min-width: 1024px) {
+    .hero :global(.hero__single) { height: 760px; }
+  }
+  .hero__caption { padding-top: 14px; }
+  .hero--pair {
+    display: grid;
+    gap: 16px;
+  }
+  @media (min-width: 768px) {
+    .hero--pair { grid-template-columns: 1fr 1fr; gap: 24px; }
+  }
+
+  /* Info: details on the left (4 of 12 columns), story on the right (8 of 12) */
+  .info {
+    display: grid;
+    gap: 56px;
+    padding-top: 72px;
+    padding-bottom: 72px;
+  }
+  @media (min-width: 900px) {
+    .info {
+      grid-template-columns: repeat(12, 1fr);
+      gap: 32px;
+      padding-top: 112px;
+      padding-bottom: 112px;
+    }
+    .details { grid-column: 1 / span 4; }
+    .story { grid-column: 5 / span 8; padding-left: 8%; }
+  }
+  .details__row {
+    padding: 14px 0 16px;
+    border-top: 1px solid var(--rule);
+  }
+  .details__row:first-child { border-top-color: var(--near-black); }
+  .details dd { margin-top: 4px; font-size: 16px; line-height: 1.5; }
+  .story__body { margin-top: 32px; max-width: 38em; }
+  .story__body :global(p + p) { margin-top: 1.1em; }
+
+  /* Gallery */
+  .gallery {
+    display: grid;
+    gap: 16px;
+  }
+  @media (min-width: 768px) {
+    .gallery { gap: 24px; }
+    .gallery--square-pair { grid-template-columns: 1fr 1fr; }
+    .gallery--portrait-three { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .credit { padding-top: 20px; }
+
+  /* Next project */
+  .next {
+    margin-top: 96px;
+    padding-bottom: 96px;
+  }
+  .next__link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+  }
+  .next__text { display: flex; flex-direction: column; gap: 10px; }
+  .next__name {
+    font-size: 30px;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+  .next__link:hover .next__name { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 6px; }
+  .next :global(.next__thumb) { flex: 0 0 96px; }
+  @media (min-width: 768px) {
+    .next { margin-top: 144px; padding-bottom: 144px; }
+    .next__name { font-size: 48px; }
+    .next :global(.next__thumb) { flex-basis: 200px; }
+  }
+</style>
