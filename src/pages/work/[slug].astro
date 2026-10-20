@@ -52,6 +52,7 @@ const gallery = {
         sizes={isPair ? '(min-width: 768px) 50vw, 100vw' : '100vw'}
         eager={i === 0 || isPair}
         class={isPair ? undefined : 'hero__single'}
+        style={isPair ? undefined : `--natural-height: ${(100 * picture.image.height) / picture.image.width}vw`}
       />
     ))}
     {data.heroCaption && <figcaption class="wrap label label--muted hero__caption">{data.heroCaption}</figcaption>}
@@ -122,9 +123,10 @@ const gallery = {
   }
 
   /* Hero */
-  .hero :global(.hero__single) { height: 420px; }
+  /* Keep the image's own shape so wide photos aren't cropped and blown up, up to a maximum height */
+  .hero :global(.hero__single) { height: min(420px, var(--natural-height)); }
   @media (min-width: 1024px) {
-    .hero :global(.hero__single) { height: 760px; }
+    .hero :global(.hero__single) { height: min(760px, var(--natural-height)); }
   }
   .hero__caption { padding-top: 14px; }
   .hero--pair {

@@ -12,14 +12,15 @@ interface Props {
   ratio?: string;
   eager?: boolean;
   class?: string;
+  style?: string;
 }
 
-const { src, alt, tag, sizes, ratio, eager = false, class: className } = Astro.props;
+const { src, alt, tag, sizes, ratio, eager = false, class: className, style } = Astro.props;
 const widths = [480, 800, 1200, 1600, 2400].filter((w) => w <= src.width);
 if (!widths.includes(src.width) && src.width < 2400) widths.push(src.width);
 ---
 
-<div class:list={['picture', className]} style={ratio ? `aspect-ratio: ${ratio}` : undefined}>
+<div class:list={['picture', className]} style={[ratio && `aspect-ratio: ${ratio}`, style].filter(Boolean).join('; ') || undefined}>
   <Image
     src={src}
     alt={alt}

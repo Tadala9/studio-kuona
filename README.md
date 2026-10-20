@@ -12,9 +12,9 @@ The portfolio website for Studio Kuona, built with [Astro](https://astro.build).
 | Project page layout (shared by all projects) | `src/pages/work/[slug].astro` |
 | Colours and type | `src/styles/global.css` |
 
-## Swapping in the real images
+## Replacing an image
 
-The images in `src/images/` are sand-coloured placeholders. To replace one, drop the real file into `src/images/` with **exactly the same name** (for example `lakeshore-setting.jpg`), overwriting the placeholder. The site makes the web-sized WebP versions for you.
+Drop the new file into `src/images/` with **exactly the same name** (for example `kweza-bed.jpg`), overwriting the old one. The site makes the web-sized WebP versions for you. The logo files and brand board are in `brand/` for reference.
 
 ## Adding a project
 
