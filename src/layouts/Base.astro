@@ -2,7 +2,7 @@
 import { getImage } from 'astro:assets';
 import '../styles/global.css';
 import Header from '../components/Header.astro';
-import ogSource from '../images/lakeshore-setting.jpg';
+import ogSource from '../images/lakeshore-lounge-1.jpg';
 
 interface Props {
   title: string;
@@ -34,7 +34,7 @@ const ogUrl = new URL(og.src, Astro.site);
     <meta property="og:image" content={ogUrl} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="The lakeshore setting: beach, fishing canoes and hills behind" />
+    <meta property="og:image:alt" content="Lounge view towards the console and media wall under the timber roof" />
     <meta name="twitter:card" content="summary_large_image" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
