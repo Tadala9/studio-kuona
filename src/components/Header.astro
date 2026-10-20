@@ -1,0 +1,56 @@
+---
+const links = [
+  { href: '/#work', label: 'Work' },
+  { href: '/#studio', label: 'Studio' },
+  { href: '/#contact', label: 'Contact' },
+];
+---
+
+<header class="header wrap">
+  <a class="logo" href="/" aria-label="Studio Kuona, home">
+    <span>Studio</span>
+    <span>Kuona</span>
+  </a>
+  <nav aria-label="Main">
+    <ul>
+      {links.map((link) => (
+        <li><a class="label text-link" href={link.href}>{link.label}</a></li>
+      ))}
+    </ul>
+  </nav>
+</header>
+
+<style>
+  .header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px 32px;
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+  @media (min-width: 768px) {
+    .header { padding-top: 36px; padding-bottom: 36px; }
+  }
+  .logo {
+    display: flex;
+    flex-direction: column;
+    font-weight: 500;
+    font-size: 19px;
+    line-height: 1.05;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 28px;
+    padding: 0;
+    list-style: none;
+  }
+  nav a {
+    display: inline-block;
+    padding: 12px 0 2px;
+  }
+</style>

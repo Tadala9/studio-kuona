@@ -1,0 +1,34 @@
+---
+// The homepage footer shows the tagline; project pages show the Instagram link.
+interface Props {
+  variant?: 'home' | 'project';
+}
+const { variant = 'home' } = Astro.props;
+---
+
+<footer class="footer">
+  <div class="wrap row">
+    <p class="label">© 2026 Studio Kuona</p>
+    {variant === 'home' ? (
+      <p class="label">Design that sees beyond</p>
+    ) : (
+      <a class="label text-link" href="https://instagram.com/studiokuona">@studiokuona</a>
+    )}
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--near-black);
+    color: var(--footer-text);
+  }
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px 24px;
+    padding-top: 28px;
+    padding-bottom: 28px;
+    border-top: 1px solid var(--charcoal);
+  }
+</style>
