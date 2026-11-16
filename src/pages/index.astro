@@ -3,7 +3,7 @@ import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import Footer from '../components/Footer.astro';
 import Picture from '../components/Picture.astro';
-import heroImage from '../images/lakeshore-lounge-1.jpg';
+import heroImage from '../images/chatham-lounge.jpg';
 import founderImage from '../images/tadala-bowazi.jpg';
 
 const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
@@ -18,11 +18,11 @@ const services = [
 
 <Base
   title="Studio Kuona · Interior & spatial design, London"
-  description="Studio Kuona is an interior and spatial design studio rooted in African design storytelling, designing calm, contemporary spaces for hospitality, workplaces and homes."
+  description="Studio Kuona is a heritage-led interior and spatial design studio, designing calm, contemporary spaces for hospitality, workplaces and homes."
 >
   <section class="hero wrap" aria-labelledby="hero-heading">
     <p class="label label--muted">Interior &amp; spatial design · London</p>
-    <h1 id="hero-heading" class="hero__heading">Interiors rooted in African design storytelling.</h1>
+    <h1 id="hero-heading" class="hero__heading">Interiors that carry a story forward.</h1>
     <div class="hero__buttons">
       <a class="button button--solid" href="#work">View work</a>
       <a class="button button--outline" href="#contact">Start a project</a>
@@ -32,21 +32,22 @@ const services = [
   <figure class="hero-image">
     <Picture
       src={heroImage}
-      alt="Lounge view towards the console and media wall under the timber roof"
+      alt="Lounge with scenic mural wallpaper, olive banquette, walnut table and original fireplace"
       sizes="100vw"
       eager
       class="hero-image__picture"
     />
     <figcaption class="wrap caption-row label label--muted">
-      <span>Lakeshore House · Lake Malawi</span>
+      <span>Chatham House · Rochester, Kent</span>
       <span>Visualisation</span>
     </figcaption>
   </figure>
 
   <section class="intro wrap" aria-label="Introduction">
     <p class="statement intro__text">
-      Studio Kuona designs spaces that carry a story. We draw on African craft, pattern and vernacular building, and
-      translate them into calm, contemporary interiors for hospitality, workplaces and homes.
+      Studio Kuona designs spaces that carry a story. We start with what’s already there (a building’s history, its
+      materials, the culture around it) and translate it into calm, contemporary interiors for hospitality, workplaces
+      and homes. Heritage-led, reuse-first, made to last.
     </p>
   </section>
 

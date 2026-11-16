@@ -1,5 +1,5 @@
 ---
-order: 1
+order: 3
 name: Lakeshore House
 eyebrow: PRIVATE LAKESIDE RESIDENCE · LAKE MALAWI
 meta: LOUNGE REFURBISHMENT · DESIGN PROPOSAL · 2025

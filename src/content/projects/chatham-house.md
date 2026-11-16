@@ -1,5 +1,5 @@
 ---
-order: 3
+order: 2
 name: Chatham House
 eyebrow: ADAPTIVE REUSE · ROCHESTER, KENT
 meta: CAFÉ AND CO-WORKING · ACADEMIC PROJECT · 2023
@@ -7,8 +7,8 @@ description: The adaptive reuse of a Grade II* listed Georgian mansion in Roches
 card:
   line: Café and co-working in a Grade II* listed building, Rochester
   tag: ACADEMIC PROJECT · 2023
-  image: ../../images/chatham-lounge.jpg
-  alt: Lounge with scenic mural wallpaper, olive banquette, walnut table and original fireplace
+  image: ../../images/chatham-booth.jpg
+  alt: Café booth with curved leather banquette and marble pedestal table beneath a sash window
 hero:
   - image: ../../images/chatham-lounge.jpg
     alt: Lounge with scenic mural wallpaper, olive banquette, walnut table and original fireplace
