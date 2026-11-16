@@ -1,5 +1,5 @@
 ---
-order: 2
+order: 4
 name: Kweza Studio Residences
 eyebrow: ARTIST RESIDENCY STUDIOS · LILONGWE, MALAWI
 meta: HOSPITALITY · DESIGN PROPOSAL · 2024

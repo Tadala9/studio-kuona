@@ -1,5 +1,5 @@
 ---
-order: 4
+order: 1
 name: The Hill Bathroom
 eyebrow: PRIVATE RESIDENCE · ESSEX
 meta: FULL BATHROOM RENOVATION · COMPLETED · 2026

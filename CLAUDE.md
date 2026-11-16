@@ -70,18 +70,18 @@ Nav links: WORK (homepage #work), STUDIO (homepage #studio), CONTACT (homepage #
 1. **Header:** stacked wordmark on the left; nav on the right (it wraps on mobile; no hamburger menu needed for three links).
 2. **Hero text**
    - Eyebrow: `INTERIOR & SPATIAL DESIGN · LONDON`
-   - Headline: **Interiors rooted in African design storytelling.**
+   - Headline: **Interiors that carry a story forward.**
    - Buttons: `VIEW WORK` (solid near-black, links to #work) and `START A PROJECT` (outlined, links to #contact). Minimum 48px tall.
-3. **Hero image:** full-bleed, about 760px tall on desktop and 420px on mobile, `lakeshore-lounge-1.jpg`. The caption row below it reads `LAKESHORE HOUSE · LAKE MALAWI` on the left and `VISUALISATION` on the right.
+3. **Hero image:** full-bleed, about 760px tall on desktop and 420px on mobile, `chatham-lounge.jpg`. The caption row below it reads `CHATHAM HOUSE · ROCHESTER, KENT` on the left and `VISUALISATION` on the right.
 4. **Intro statement** (large text):
-   > Studio Kuona designs spaces that carry a story. We draw on African craft, pattern and vernacular building, and translate them into calm, contemporary interiors for hospitality, workplaces and homes.
+   > Studio Kuona designs spaces that carry a story. We start with what’s already there (a building’s history, its materials, the culture around it) and translate it into calm, contemporary interiors for hospitality, workplaces and homes. Heritage-led, reuse-first, made to last.
 5. **Selected work** (`id="work"`): a thin top rule with `SELECTED WORK` on the left and `04` on the right. A 2-column grid on desktop, 1 column on mobile. Each card shows a 4:3 image, the name (uppercase), a one-line description and a status tag, and links to its project page.
    | Order | Name | Line | Tag | Card image |
    |---|---|---|---|---|
-   | 1 | LAKESHORE HOUSE | Private lakeside residence, Lake Malawi | DESIGN PROPOSAL · 2025 | lakeshore-lounge-2.jpg |
-   | 2 | KWEZA STUDIO RESIDENCES | Artist residency studios, Lilongwe, Malawi | DESIGN PROPOSAL · 2024 | kweza-studio.jpg |
-   | 3 | CHATHAM HOUSE | Café and co-working in a Grade II* listed building, Rochester | ACADEMIC PROJECT · 2023 | chatham-lounge.jpg |
-   | 4 | THE HILL BATHROOM | Full bathroom renovation, Essex | COMPLETED · 2026 | hill-vanity.jpg |
+   | 1 | THE HILL BATHROOM | Full bathroom renovation, Essex | COMPLETED · 2026 | hill-vanity.jpg |
+   | 2 | CHATHAM HOUSE | Café and co-working in a Grade II* listed building, Rochester | ACADEMIC PROJECT · 2023 | chatham-booth.jpg |
+   | 3 | LAKESHORE HOUSE | Private lakeside residence, Lake Malawi | DESIGN PROPOSAL · 2025 | lakeshore-lounge-2.jpg |
+   | 4 | KWEZA STUDIO RESIDENCES | Artist residency studios, Lilongwe, Malawi | DESIGN PROPOSAL · 2024 | kweza-studio.jpg |
 6. **Services** (sand background, 4 columns on desktop, 2 on mobile, numbered 01–04):
    - **01 Interior design:** Concept to specification: materials, furniture, lighting and art, chosen to tell one story.
    - **02 Spatial planning:** Layouts that make the most of a room, from compact studios to reworked bathrooms.
@@ -113,7 +113,7 @@ Every project page uses the same layout:
 5. Info section: a 12-column grid. On the left (4 columns) is a details list: label / value pairs, each with a thin top rule, the first rule darker. On the right (8 columns) is a large lead line followed by the body paragraphs. It stacks on mobile.
 6. Gallery
 7. Optional credit line (small, taupe, uppercase)
-8. "Next project" link: a big name with an arrow plus a small thumbnail. The order loops: Lakeshore → Kweza → Chatham → Hill → Lakeshore.
+8. "Next project" link: a big name with an arrow plus a small thumbnail. The order loops: Hill → Chatham → Lakeshore → Kweza → Hill.
 9. Footer: `© 2026 STUDIO KUONA` and `@STUDIOKUONA`
 
 **Image labels:** every render gets a small off-white `VISUALISATION` tag in its top-left corner. Real photos have no tag. The Hill Bathroom's pair uses `BEFORE` (off-white tag) and `AFTER` (near-black tag).
